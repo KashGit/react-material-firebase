@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Paper } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 import Header from '../components/Header';
 import theme from '../styles/Theme';
 
