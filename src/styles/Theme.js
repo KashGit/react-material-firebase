@@ -26,6 +26,12 @@ export default createMuiTheme({
       fontFamily: 'Raleway',
       fontWeight: '700',
       fontSize: '1rem',
+    },
+    estimates: {
+      fontFamily: 'Pacifico',
+      textTransform: 'none',
+      color: 'white',
+      fontSize: '1rem',
     }
   }
 });
