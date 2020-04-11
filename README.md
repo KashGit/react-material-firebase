@@ -1,4 +1,4 @@
-This project uses material ui and firestore cloud functions.f
+This project uses React, material ui and firestore GCP.
 
 ## Available Scripts
 
