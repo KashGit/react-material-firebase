@@ -143,13 +143,15 @@ export default function Header() {
         setAnchorEl(null);
         setOpenMenu(false);
     }
-    
+
     const tabs = (
         <>
             <Tabs value={tabIndex} className={classes.tabContainer} onChange={handleTabChange}>
 
                 {routes.map(route => (
-                    <Tab className={classes.tab}
+                    <Tab
+                        key={`${route}${route.activeIndex}`}
+                        className={classes.tab}
                         label={route.name}
                         aria-owns={route.ariaOwns}
                         aria-haspopup={route.ariaPopus}
@@ -172,6 +174,7 @@ export default function Header() {
             >
                 {menuOptions.map((option, i) => (
                     <MenuItem
+                        key={`${option}${i}`}
                         classes={{ root: classes.menuItem }}
                         component={Link} to={option.link}
                         onClick={(e) => { handleMenuItemClick(e, i); setTabIndex(1) }}
@@ -192,10 +195,14 @@ export default function Header() {
                 onOpen={() => { setOpenDrawer(true) }}
                 onClose={() => setOpenDrawer(false)}
                 classes={{ paper: classes.drawer }}
+                ModalProps={{
+                    keepMounted: true, // Better open performance on mobile.
+                  }}
             >
                 <List disablePadding>
                     {routes.map(route => (
                         <ListItem
+                            key={`${route}${route.activeIndex}`}
                             button
                             divider
                             component={Link}
@@ -213,6 +220,7 @@ export default function Header() {
                         </ListItem>
                     ))}
                     <ListItem
+                        key={'estimates5'}
                         className={classes.drawerItemEstimate}
                         button
                         divider
