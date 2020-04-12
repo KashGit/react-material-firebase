@@ -21,7 +21,7 @@ function App() {
         <Route exact path='/revolution' component ={() => <div>revolution</div>} />
         <Route exact path='/about' component ={() => <div>about</div>} />
         <Route exact path='/contact' component ={() => <div>contact</div>} />
-        <Route exact path='/estimate' component ={() => <div>estimate</div>} />
+        <Route exact path='/estimates' component ={() => <div>estimate</div>} />
       </Switch>
       </BrowserRouter>  
     </ThemeProvider>
