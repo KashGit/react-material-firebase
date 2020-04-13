@@ -5,8 +5,10 @@ import { AppBar, Toolbar, Button, Menu, MenuItem } from '@material-ui/core'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+
 import { useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 import { makeStyles } from '@material-ui/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
@@ -76,22 +78,21 @@ const useStyles = makeStyles(theme => (
     }
 ));
 
-export default function Header() {
+export default function Header({tabIndex, setTabIndex, selectedIndex, setSelectedIndex}) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('xs'));
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-    const [tabIndex, setTabIndex] = useState(0);
+    
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenu, setOpenMenu] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
     const [openDrawer, setOpenDrawer] = useState(false);
 
     const menuOptions = [
         { name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0 },
         { name: 'Custom Software', link: '/customsoftware', activeIndex: 1, selectedIndex: 1 },
-        { name: 'Mobile Apps', link: 'mobileapps', activeIndex: 1, selectedIndex: 2 },
+        { name: 'Mobile Apps', link: '/mobileapps', activeIndex: 1, selectedIndex: 2 },
         { name: 'Websites', link: '/websites', activeIndex: 1, selectedIndex: 3 }
     ];
     const routes = [
