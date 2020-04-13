@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => (
             marginRight: '25px',
             borderRadius: '45px',
             height: '45px',
+            '&:hover':{
+                backgroundColor: theme.palette.secondary.light,
+            },
             [theme.breakpoints.down('md')]: { fontSize: '.7em', marginLeft: '5px', marginRight: '5px' },
         },
         menu: {
@@ -127,7 +130,7 @@ export default function Header({tabIndex, setTabIndex, selectedIndex, setSelecte
                     break;
             }
         })
-    }, [tabIndex, menuOptions, routes, selectedIndex]);
+    }, [tabIndex, menuOptions, routes, selectedIndex,setSelectedIndex,setTabIndex]);
 
     const handleClick = e => {
         setAnchorEl(e.currentTarget);
