@@ -4,8 +4,9 @@ import { ThemeProvider } from '@material-ui/core';
 import Header from '../components/Header';
 import theme from '../styles/Theme';
 import LandingPage from '../components/LandingPage';
-import Services from '../components/Services';
 import Footer from '../components/Footer';
+import Services from '../components/Services';
+import CustomSoftware from '../components/CustomSoftware';
 
 
 function App() {
@@ -21,9 +22,9 @@ function App() {
           setSelectedIndex={setSelectedIndex}
         />
         <Switch>
-          <Route exact path='/' component={LandingPage} />
-          <Route exact path='/services' component={Services} />
-          <Route exact path='/customsoftwares' component={() => <div>customsoftwares</div>} />
+          <Route exact path='/' render={(props) => <LandingPage {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />} />
+          <Route exact path='/services' render={(props) => <Services {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
+          <Route exact path='/customsoftware' render={(props) => <CustomSoftware {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
           <Route exact path='/websites' component={() => <div>website</div>} />
           <Route exact path='/mobileapps' component={() => <div>mobile apps</div>} />
           <Route exact path='/revolution' component={() => <div>revolution</div>} />
@@ -32,9 +33,7 @@ function App() {
           <Route exact path='/estimates' component={() => <div>estimate</div>} />
         </Switch>
         <Footer
-          tabIndex={tabIndex}
           setTabIndex={setTabIndex}
-          selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
       </BrowserRouter>

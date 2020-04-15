@@ -36,30 +36,45 @@ export default createMuiTheme({
     },
     h2: {
       fontFamily: 'Raleway',
-      fontWeight:700,
+      fontWeight: 700,
       fontSize: '2.5rem',
       color: `${mbbsPurple}`,
       lineHeight: 1.5
     },
-    h4:{
-      fontFamily:'Raleway',
-      fontSize:'1.75rem',
-      color:mbbsPurple,
-      fontWeight:700
+    h3: {
+      fontFamily: 'Pacifico',
+      fontSize: '2.5em',
+      color: mbbsPink
     },
-    subtitle1:{
+    h4: {
+      fontFamily: 'Raleway',
+      fontSize: '1.75rem',
+      color: mbbsPurple,
+      fontWeight: 700
+    },
+    subtitle1: {
       fontSize: '1.25rem',
-      fontWeight:300,
+      fontWeight: 300,
       color: mbbsGrey,
     },
-    buttonLearnMore:{
+    subtitle2: {
+      fontSize: '1.25rem',
+      fontWeight: 300,
+      color: 'white',
+    },
+    body1: {
+      fontSize: '1.25rem',
+      fontWeight: 300,
+      color: mbbsGrey
+    },
+    buttonLearnMore: {
       fontFamily: 'Roboto',
-            fontWeight: 'bold',
-            textTransform: 'none',
-            borderColor: mbbsPurple,
-            color: mbbsPurple,
-            borderRadius: 50,
-            borderWidth: 2,
+      fontWeight: 'bold',
+      textTransform: 'none',
+      borderColor: mbbsPurple,
+      color: mbbsPurple,
+      borderRadius: 50,
+      borderWidth: 2,
     }
   }
 });

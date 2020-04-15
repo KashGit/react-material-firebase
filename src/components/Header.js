@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => (
             marginRight: '25px',
             borderRadius: '45px',
             height: '45px',
-            '&:hover':{
+            '&:hover': {
                 backgroundColor: theme.palette.secondary.light,
             },
             [theme.breakpoints.down('md')]: { fontSize: '.7em', marginLeft: '5px', marginRight: '5px' },
@@ -81,13 +81,13 @@ const useStyles = makeStyles(theme => (
     }
 ));
 
-export default function Header({tabIndex, setTabIndex, selectedIndex, setSelectedIndex}) {
+export default function Header({ tabIndex, setTabIndex, selectedIndex, setSelectedIndex }) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('xs'));
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-    
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenu, setOpenMenu] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -126,11 +126,14 @@ export default function Header({tabIndex, setTabIndex, selectedIndex, setSelecte
                         }
                     }
                     break;
+                case '/estimates':
+                    setTabIndex(5);
+                    break;
                 default:
                     break;
             }
         })
-    }, [tabIndex, menuOptions, routes, selectedIndex,setSelectedIndex,setTabIndex]);
+    }, [tabIndex, menuOptions, routes, selectedIndex, setSelectedIndex, setTabIndex]);
 
     const handleClick = e => {
         setAnchorEl(e.currentTarget);
@@ -164,9 +167,13 @@ export default function Header({tabIndex, setTabIndex, selectedIndex, setSelecte
                 ))}
             </Tabs>
             <Button
+                component={Link}
+                to='/estimates'
                 variant='contained'
                 color='secondary'
-                className={classes.button}>
+                className={classes.button}
+                onClick={() => setTabIndex(5)}
+                >
                 Free Estimates
             </Button>
             <Menu id='menu'
@@ -201,7 +208,7 @@ export default function Header({tabIndex, setTabIndex, selectedIndex, setSelecte
                 classes={{ paper: classes.drawer }}
                 ModalProps={{
                     keepMounted: true, // Better open performance on mobile.
-                  }}
+                }}
             >
                 <List disablePadding>
                     {routes.map(route => (
