@@ -76,5 +76,23 @@ export default createMuiTheme({
       borderRadius: 50,
       borderWidth: 2,
     }
+  },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: mbbsPurple,
+        fontSize: '1rem'
+      },
+    },
+    MuiInput: {
+      underline: {
+        '&:before': {
+          borderBottom: `2px  Solid ${mbbsPurple}`
+        },
+        '&:hover:not($disabled):not($focused):not($error):before': {
+          borderBottom: `2px Solid ${mbbsPurple}`
+        }
+      }
+    }
   }
 });

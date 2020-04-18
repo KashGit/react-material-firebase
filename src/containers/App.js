@@ -7,6 +7,7 @@ import LandingPage from '../components/LandingPage';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
 import CustomSoftware from '../components/CustomSoftware';
+import ContactUs from '../components/ContactUs';
 
 
 function App() {
@@ -22,14 +23,14 @@ function App() {
           setSelectedIndex={setSelectedIndex}
         />
         <Switch>
-          <Route exact path='/' render={(props) => <LandingPage {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />} />
-          <Route exact path='/services' render={(props) => <Services {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
-          <Route exact path='/customsoftware' render={(props) => <CustomSoftware {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
+          <Route exact path='/' render={props => <LandingPage {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />} />
+          <Route exact path='/services' render={props => <Services {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
+          <Route exact path='/customsoftware' render={props => <CustomSoftware {...props} setTabIndex={setTabIndex} setSelectedIndex={setSelectedIndex} />}  />
           <Route exact path='/websites' component={() => <div>website</div>} />
           <Route exact path='/mobileapps' component={() => <div>mobile apps</div>} />
           <Route exact path='/revolution' component={() => <div>revolution</div>} />
           <Route exact path='/about' component={() => <div>about</div>} />
-          <Route exact path='/contact' component={() => <div>contact</div>} />
+          <Route exact path='/contact' render={props => <ContactUs {...props} setTabIndex={setTabIndex} />} />
           <Route exact path='/estimates' component={() => <div>estimate</div>} />
         </Switch>
         <Footer
